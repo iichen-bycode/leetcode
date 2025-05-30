@@ -55,8 +55,25 @@ List<Integer> search(String text, String pattern) {
     return positions;
 }
 ```
-
 ![alt text](https://picx.zhimg.com/80/v2-6d6a40331cd9e44bfccd27ac5a764618_720w.webp?source=1def8aca "标注")
 ![alt text](https://picx.zhimg.com/v2-ce1d46a1e3603b07a13789b6ece6022f_r.jpg?source=1def8aca "标注")
 ![alt text](https://picx.zhimg.com/80/v2-c5ff4faaab9c3e13690deb86d8d17d71_720w.webp?source=1def8aca "标注")
 
+#### 定长滑动窗口
+> 对于定长k，先初始移动满足窗口大小等于k,然后后续移动就是 处理前一个刚进入窗口的元素和最后一个离开窗口的元素。 见：1456
+> 关键在于 '入'与’进‘的处理 比如：进 +1， 出 需要-1
+
+
+#### 回文串 (Manacher's Algorithm)
+> Manacher's Algorithm
+>
+![alt text](https://pic2.zhimg.com/80/v2-d570f7a9e732d577d556b0e6cff1d263_720w.webp "标注")
+![alt text](https://pic3.zhimg.com/80/v2-11f96d39d9648b7c146e49cdceb0854c_720w.webp "标注")
+
+
+#### 位运算
+> 并集 a | b
+> 交集 a & b
+> 差集（子集）  a ^ b
+> 差集（非子集） a & ~b
+> 包含于   a & b = a  或  a | b = b
