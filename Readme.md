@@ -3,6 +3,7 @@
 [科学刷题](https://leetcode.cn/discuss/post/3141566/ru-he-ke-xue-shua-ti-by-endlesscheng-q3yd/)
 
 [链表](https://leetcode.cn/problem-list/linked-list/)
+> 虚拟头节点 + 头插法修改next指向
 
 [双向链表](https://leetcode.cn/problem-list/doubly-linked-list/)
 
@@ -77,3 +78,41 @@ List<Integer> search(String text, String pattern) {
 > 差集（子集）  a ^ b
 > 差集（非子集） a & ~b
 > 包含于   a & b = a  或  a | b = b
+> 
+> Integer.bitCount(s) 对应二进制1的数目
+> 32-Integer.numberOfLeadingZeros(s) 对应二进制长度
+> 31-Integer.numberOfLeadingZeros(s)   最大元素
+> Integer.numberOfTrailingZeros(s)   最小元素
+> 
+> & 两位同时为1，结果才为1，否则为0
+> | 参与运算的两个数据只要有一个值为1 那么值为1
+> ^ 参加运算的两个对象，如果两个相应位值不同，则该位结果为1，否则为0
+
+
+#### 模运算
+> (a + b) % m  = (a % m  + b % m) % m
+> (a * b) % m = ((a % m) * (b % m)) % m
+> 对于任意x 取模： (x % m + m) % m
+> 除数取模：(a/b) mod p  = (a*b的p-2平方) mod p
+>
+> 快速幂： 将x转为二进制 不断右移位 如果当前位是1 直接乘当前幂
+```java
+class Solution {
+    public double myPow(double x, int N) {
+        double ans = 1;
+        long n = N;
+        if (n < 0) { // x^-n = (1/x)^n
+            n = -n;
+            x = 1 / x;
+        }
+        while (n != 0) { // 从低到高枚举 n 的每个比特位
+            if ((n & 1) == 1) { // 这个比特位是 1
+                ans *= x; // 把 x 乘到 ans 中
+            }
+            x *= x; // x 自身平方
+            n >>= 1; // 继续枚举下一个比特位
+        }
+        return ans;
+    }
+}
+```
