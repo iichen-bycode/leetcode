@@ -68,12 +68,40 @@ public class leetcode_2074 {
 //
 //        输入：head = [1,1,0,6,5]
 //        输出：[1,0,1,5,6]
-        ListNode l2 = reverseEvenLengthGroups(new NodeBuilder().build(new int[]{1,1,0,6,5}));
+        ListNode l2 = reverseEvenLengthGroups(new NodeBuilder().build(new int[]{1, 1, 0, 6, 5}));
         l2.print();
     }
 
     public static ListNode reverseEvenLengthGroups(ListNode head) {
-
+        // 考虑的是当前分组是不是偶数 不要拘泥分组是奇数还是偶数
+        int i = 1;
+        // 5, 2, 6, 3, 9, 1, 7, 3, 8, 4
+        ListNode p = head, prev = head;
+        while (p != null) {
+            // 获取当前分组的长度
+            int len = 0;
+            ListNode t = p;
+            for (int j = 0; j < i && t != null; j++) {
+                len++;
+                t = t.next;
+            }
+            if (len % 2 == 0) { // 偶数反转
+                for (int j = 0; j < len - 1; j++) {
+                    ListNode nxt = p.next;
+                    p.next = nxt.next;
+                    nxt.next = prev.next;
+                    prev.next = nxt;
+                }
+                prev = p;
+                p = p.next;
+            } else {
+                for (int j = 0; j < len; j++) {
+                    prev = p;
+                    p = p.next;
+                }
+            }
+            i++;
+        }
         return head;
     }
 }
