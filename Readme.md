@@ -90,6 +90,10 @@ List<Integer> search(String text, String pattern) {
 
 
 #### 模运算
+> 记住二进制： 除以2 等价于 右移操作 >>1
+> 直接通过二进制 Int长度来遍历， for (int i = 0; i < 31; i++)
+> 对于x 只有二进制全为1 才可以进位 x+1。如：3 => 011; 3+1 = 4   => 100
+
 > (a + b) % m  = (a % m  + b % m) % m
 > (a * b) % m = ((a % m) * (b % m)) % m
 > 对于任意x 取模： (x % m + m) % m
