@@ -60,10 +60,34 @@ List<Integer> search(String text, String pattern) {
 ![alt text](https://picx.zhimg.com/v2-ce1d46a1e3603b07a13789b6ece6022f_r.jpg?source=1def8aca "标注")
 ![alt text](https://picx.zhimg.com/80/v2-c5ff4faaab9c3e13690deb86d8d17d71_720w.webp?source=1def8aca "标注")
 
-#### 定长滑动窗口
+#### 定长滑动窗口 （最大最长）
 > 对于定长k，先初始移动满足窗口大小等于k,然后后续移动就是 处理前一个刚进入窗口的元素和最后一个离开窗口的元素。 见：1456
 > 关键在于 '入'与’进‘的处理 比如：进 +1， 出 需要-1
+> 
+##### 求最短最小
 
+##### 求子数组个数
+> 越长越合法
+```java
+    class Solution {
+        public int numberOfSubstrings(String s) {
+            // 滑动窗口：含a、b、c至少各1次
+            int[] cnt = new int[3];
+            char[] ss = s.toCharArray();
+            int n = s.length(), res = 0;
+            for (int i = 0, j = 0; j < n; j++) {
+                cnt[ss[j] - 'a']++;
+                while (cnt[0] > 0 && cnt[1] > 0 && cnt[2] > 0) {
+                    cnt[ss[i++] - 'a']--;
+                    res += n - j;  // [i..j]已经满足了, 右边界[j..n-1]肯定都可以
+                }
+            }
+            return res;
+        }
+    }
+```
+> 越短越合法
+> 恰好型
 
 #### 回文串 (Manacher's Algorithm)
 > Manacher's Algorithm
@@ -119,4 +143,34 @@ class Solution {
         return ans;
     }
 }
+```
+
+
+### 前缀和
+[详解](https://leetcode.cn/problems/range-sum-query-immutable/solutions/2693498/qian-zhui-he-ji-qi-kuo-zhan-fu-ti-dan-py-vaar/)
+> 前缀和数组：    快速求区间和
+```java
+    /* 对于数组：a = [1,2,3,4,5,6]
+        s[0] = 0
+        s[1] = a[0]
+        s[2] = a[0] + a[1]
+        ...
+        s[n] = a[0] + a[1] + ... + a[n]
+        
+        上诉a数组对于的前缀和数组：
+        s[7] = [0,1,3,6,10,15,21] 则任意a[i]到a[j]的子数组和 就等于s[j + 1] - s[i]
+    */
+```
+
+### 差分
+[详解](https://leetcode.cn/problems/car-pooling/solutions/2550264/suan-fa-xiao-ke-tang-chai-fen-shu-zu-fu-9d4ra/)
+> 反向前缀和:快速对区间加数  从左到右逐个累加 等于 原数组，所以对于 d[i] + k,还原为原数组是 会每个元素都 + k 
+
+> 当我们想要对原数组的 [l,r] 进行整体修改时，只需要对差分数组的 l 和 r+1 位置执行相应操作即可
+```declarative
+    /*               0 1 2
+        对于数组：a = [1,2,3,4,5,6] ,右侧减当前值 d[i] = a[i] - a[i-1]
+        d[] = [1,2-1,3-2,4-3,5-4,6-4] d[0]      补上 a[0]
+        d[] = [1,1,1,1,1,1]  
+    */
 ```
