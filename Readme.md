@@ -86,8 +86,28 @@ List<Integer> search(String text, String pattern) {
         }
     }
 ```
-> 越短越合法
+> 越短越合法 
+
 > 恰好型
+> 即两次 越长越合法相减  == => >= - >
+```java
+    public static int numSubarraysWithSum2(int[] nums, int goal) {
+        int l1 = 0, l2 = 0, len = nums.length, ans = 0, s1 = 0, s2 = 0;
+        for (int i = 0; i < len; i++) {
+            s1 += nums[i];
+            s2 += nums[i];
+            // >= - >
+            while (s1 > goal && l1 <= i) {
+                s1 -= nums[l1++];
+            }
+            while (s2 >= goal && l2 <= i) {
+                s2 -= nums[l2++];
+            }
+            ans += l2 - l1;
+        }
+        return ans;
+    }
+```
 
 #### 回文串 (Manacher's Algorithm)
 > Manacher's Algorithm
