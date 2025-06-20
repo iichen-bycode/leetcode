@@ -195,9 +195,85 @@ class Solution {
     */
 ```
 
-### 动态规划
-> 路径问题
+### 动态规划 
+> 路径-网格问题
+> [比较好的讲解](https://leetcode.cn/problems/minimum-path-sum/solutions/2728404/javapython3cdong-tai-gui-hua-kong-jian-y-a5sz/)
+> (当 当前状态只有上一个状态转变而来 则可以进行转为一维)
 
+>64 
+
+#### 背包问题 从N个物品选择 满足 K 的问题。
 > 0-1背包 （某一元素选或不选 两种状态）
+> [详解](https://mp.weixin.qq.com/s/xmgK7SrTnFIM3Owpk-emmg)
 > 
 > 题号如下： 416，
+
+> 二维实现
+```java
+    // 想象一个二维数组 逐行从左到右计算值
+    class Solution {
+        public int maxValue(int N, int C, int[] v, int[] w) {
+            int[][] dp = new int[N][C+1];
+            // 先处理「考虑第一件物品」的情况
+            for (int i = 0; i <= C; i++) {
+                dp[0][i] = i >= v[0] ? w[0] : 0;
+            }
+            // 再处理「考虑其余物品」的情况
+            for (int i = 1; i < N; i++) {
+                for (int j = 0; j < C + 1; j++) {
+                    // 不选该物品
+                    int n = dp[i-1][j];
+                    // 选择该物品，前提「剩余容量」大于等于「物品体积」
+                    int y = j >= v[i] ? dp[i-1][j-v[i]] + w[i] : 0;
+                    dp[i][j] = Math.max(n, y);
+                }
+            }
+            return dp[N-1][C];
+        }
+    }
+```
+
+![img.png](img.png)
+> 2维2个数组实现
+```java
+    // i行的状态仅仅取决于i-1行 所以一维只需要 2 即可。 想象逐行扫描
+    class Solution {
+        public int maxValue(int N, int C, int[] v, int[] w) {
+            int[][] dp = new int[2][C+1];
+            // 先处理「考虑第一件物品」的情况
+            for (int i = 0; i < C + 1; i++) {
+                dp[0][i] = i >= v[0] ? w[0] : 0;
+            }
+            // 再处理「考虑其余物品」的情况
+            for (int i = 1; i < N; i++) {
+                for (int j = 0; j < C + 1; j++) {
+                    // 不选该物品
+                    int n = dp[(i-1)&1][j];
+                    // 选择该物品
+                    int y = j >= v[i] ? dp[(i-1)&1][j-v[i]] + w[i] : 0;
+                    dp[i&1][j] = Math.max(n, y);
+                }
+            }
+            return dp[(N-1)&1][C];
+        }
+    }
+```
+> 一维实现 对于上诉每次都是依赖上一行的数据且每次计算都是会覆盖左侧数据 所以从右侧开始计算 
+> 想象滚动数组：把二维铺开的数组想象动态的一行一行从右向左扫描展开计算
+```java
+class Solution {
+    public int maxValue(int N, int C, int[] v, int[] w) {
+        int[] dp = new int[C + 1];
+        for (int i = 0; i < N; i++) {
+            for (int j = C; j >= v[i]; j--) {
+                // 不选该物品
+                int n = dp[j]; 
+                // 选择该物品
+                int y = dp[j-v[i]] + w[i]; 
+                dp[j] = Math.max(n, y);
+            }
+        }
+        return dp[C];
+    }
+}
+```
