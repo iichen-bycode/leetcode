@@ -196,6 +196,8 @@ class Solution {
 ```
 
 ### 动态规划 
+> 以 dp[i] 表示 0-i区间的某个条件：最大和等
+
 > 路径-网格问题
 > [比较好的讲解](https://leetcode.cn/problems/minimum-path-sum/solutions/2728404/javapython3cdong-tai-gui-hua-kong-jian-y-a5sz/)
 > (当 当前状态只有上一个状态转变而来 则可以进行转为一维)

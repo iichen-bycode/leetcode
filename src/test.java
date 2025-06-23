@@ -9,8 +9,13 @@ public class test {
 //        System.out.println(1 << 3);
 //        System.out.println((1 << 2) & (1 << 3));
 //        System.out.println(numberOfSubstrings("abcabbb"));
-        char a = '1';
-        System.out.println(a - '0');
+        // 16 8 4 2 1
+        /*
+            1000
+
+            1111
+         */
+        System.out.println(43 ^ 43);
     }
 
 
