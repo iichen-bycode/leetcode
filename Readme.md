@@ -60,6 +60,17 @@ List<Integer> search(String text, String pattern) {
 ![alt text](https://picx.zhimg.com/v2-ce1d46a1e3603b07a13789b6ece6022f_r.jpg?source=1def8aca "标注")
 ![alt text](https://picx.zhimg.com/80/v2-c5ff4faaab9c3e13690deb86d8d17d71_720w.webp?source=1def8aca "标注")
 
+#### 枚举技巧
+> 双变量 i,j：一次遍历 遍历过程使用哈希表记录已经遍历的值，利用这些哈希表内的值进行计算
+> 
+> 1、2441、1512
+
+> 三变量 i<j<k 则枚举j这样就可以直接满足条件了
+> 和双变量不同的在于需要 有一个j到k直接的数据关系如：2909 需要知道j到k直接的最小值 就是后缀数组的最小值，然后j到k的确定后，i到j就是双变量了
+> 
+> 2909 
+
+
 #### 定长滑动窗口 （最大最长）
 > 对于定长k，先初始移动满足窗口大小等于k,然后后续移动就是 处理前一个刚进入窗口的元素和最后一个离开窗口的元素。 见：1456
 > 关键在于 '入'与’进‘的处理 比如：进 +1， 出 需要-1
@@ -197,6 +208,7 @@ class Solution {
 
 ### 动态规划 
 > 以 dp[i] 表示 0-i区间的某个条件：最大和等
+> dp[i] 表示连续子区间 是否以 a[i]结尾：dp[i] = dp[i-1] + a[i] (以结尾) /  a[i] (不以结尾 额外新的子序列)
 
 > 路径-网格问题
 > [比较好的讲解](https://leetcode.cn/problems/minimum-path-sum/solutions/2728404/javapython3cdong-tai-gui-hua-kong-jian-y-a5sz/)
