@@ -1,3 +1,6 @@
+import helper.Utils;
+
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Stack;
 
@@ -20,11 +23,22 @@ public class test {
          */
         //        [[4,8],[3,6],[10,20],[15,30]]
 //        [[4,5],[7,8]]
-        HashSet<Integer> hashSet = new HashSet<>();
-        hashSet.add(1);
-        for(int num : hashSet) {
-            System.out.println(num);
-        }
+        int[] l = new int[26];
+        int[] r = new int[26];
+        l[0] = 2;
+        l[1] = 2;
+        r[0] = 2;
+        r[1] = 2;
+        int[] res = Arrays.stream(l).filter(x -> Arrays.stream(r).anyMatch(y -> y!= 0 && y == x)).distinct().toArray();
+        Utils.print(res);
+
+        // 0    1   2   3   4
+        /*
+            0000
+            0001
+            0010
+            0011
+         */
     }
 
 

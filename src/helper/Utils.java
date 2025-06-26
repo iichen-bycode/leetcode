@@ -17,4 +17,17 @@ public class Utils {
         }
         System.out.println();
     }
+
+    public static void print3(int[][][] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums[i].length; j++) {
+                for (int k = 0; k < nums[i][j].length; k++) {
+                    System.out.print(nums[i][j][k] + " ");
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
 }
