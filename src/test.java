@@ -23,22 +23,12 @@ public class test {
          */
         //        [[4,8],[3,6],[10,20],[15,30]]
 //        [[4,5],[7,8]]
-        int[] l = new int[26];
-        int[] r = new int[26];
-        l[0] = 2;
-        l[1] = 2;
-        r[0] = 2;
-        r[1] = 2;
-        int[] res = Arrays.stream(l).filter(x -> Arrays.stream(r).anyMatch(y -> y!= 0 && y == x)).distinct().toArray();
-        Utils.print(res);
-
-        // 0    1   2   3   4
         /*
-            0000
-            0001
             0010
-            0011
+            0101
          */
+        System.out.println(2 ^ (2 + 3));
+        System.out.println((1 << 3) - 1);
     }
 
 

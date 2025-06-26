@@ -128,6 +128,7 @@ List<Integer> search(String text, String pattern) {
 
 
 #### 位运算
+> 想象成滚动的 如：32位 0000000.....001 逐个往右移动判断最后一位是否为0或1。
 > 并集 a | b
 > 交集 a & b
 > 差集（子集）  a ^ b
@@ -146,6 +147,13 @@ List<Integer> search(String text, String pattern) {
 
 #### 模运算
 > 记住二进制： 除以2 等价于 右移操作 >>1
+> 
+> 巧用 n&(n-1) 
+> 
+>    (n−1) 作用： 二进制数字 n 最右边的 1 变成 0 ，此 1 右边的 0 都变成 1 。
+> 
+>    n&(n−1) 作用： 二进制数字 n 最右边的 1 变成 0 ，其余不变。
+> 
 > 直接通过二进制 Int长度来遍历， for (int i = 0; i < 31; i++)
 > 对于x 只有二进制全为1 才可以进位 x+1。如：3 => 011; 3+1 = 4   => 100
 
@@ -155,6 +163,7 @@ List<Integer> search(String text, String pattern) {
 > 除数取模：(a/b) mod p  = (a*b的p-2平方) mod p
 >
 > 快速幂： 将x转为二进制 不断右移位 如果当前位是1 直接乘当前幂
+> -n为 负数取反+1 
 ```java
 class Solution {
     public double myPow(double x, int N) {
