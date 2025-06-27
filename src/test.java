@@ -27,8 +27,7 @@ public class test {
             0010
             0101
          */
-        System.out.println(2 ^ (2 + 3));
-        System.out.println((1 << 3) - 1);
+        System.out.println('9' - 0); // 48 57
     }
 
 

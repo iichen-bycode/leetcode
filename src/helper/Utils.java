@@ -1,5 +1,7 @@
 package helper;
 
+import java.util.List;
+
 public class Utils {
     public static void print(int[] nums) {
         for (int k : nums) {
@@ -27,6 +29,13 @@ public class Utils {
                 System.out.println();
             }
             System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static void printList(List<Integer> a) {
+        for (int aa : a) {
+            System.out.print(aa + ",");
         }
         System.out.println();
     }

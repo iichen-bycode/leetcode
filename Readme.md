@@ -300,3 +300,105 @@ class Solution {
     }
 }
 ```
+
+#### 双指针
+> 关键处理好 i==j 的情况
+> 
+> 相向：611（回溯）、
+> 
+
+#### 回溯
+```java
+    private static int ans = 0;
+    public static int triangleNumber(int[] nums) {
+        dfs(nums, 0, 0, 0);
+        return ans;
+    }
+    
+    private static void dfs(int[] nums, int index, int sum, int count) {
+        // 终止条件
+        if (count == 3) {
+            ans++;
+            return;
+        }
+        // 相当于下层for循环
+        for (int j = index; j < nums.length; j++) {
+            if (count == 2 && sum <= nums[j]) {
+                break;
+            }
+            dfs(nums, j + 1, sum + nums[j], count + 1);
+        }
+    }
+```
+
+
+#### 二叉树
+
+```前序遍历
+    public static void preOrderIteration(TreeNode head) {
+        if (head == null) {
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(head);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            System.out.print(node.value + " ");
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
+    }
+```
+
+
+```java
+    // 中序遍历
+    public static void inOrderIteration(TreeNode head) {
+        if (head == null) {
+            return;
+        }
+        TreeNode cur = head;
+        Stack<TreeNode> stack = new Stack<>();
+        while (!stack.isEmpty() || cur != null) {
+            // 模拟一下过程 需要不断把左子树遍历压入栈内 然后才是当前节点 最后把当前节点的右子树压入栈内
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            TreeNode node = stack.pop();
+            System.out.print(node.value + " ");
+            if (node.right != null) {
+                cur = node.right;
+            }
+        }
+    }
+```
+
+```java
+    // 后序遍历
+    public static void postOrderIteration2(TreeNode head) { 感谢[@ben-ben-niu](/u/ben-ben-niu/)指出错误，代码确实存在问题，已经在原文中修复
+        if (head == null) {
+            return;
+        }
+        TreeNode cur = head;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(head);
+        while (!stack.isEmpty()) {
+            TreeNode peek = stack.peek();
+            // 模拟以下过程 当从左右子树回到当前节点 需要判断 上一个节点是否是左还是右 如果都不是表示 左子树可以添加
+            if (peek.left != null && peek.left != cur && peek.right != cur) { // 当前的cur执行右子树
+                stack.push(peek.left);
+            } else if (peek.right != null && peek.right != cur) { // 当前的cur指向左子树
+                // 上一个节点都不是左右 这里判断是为了 当上一次的cur是左子树是 使得右子树可以正确压入栈内
+                stack.push(peek.right);
+            } else { // 左右子树已经遍历完了 打印当前节点
+                System.out.print(stack.pop().val + " ");
+                cur = peek;
+            }
+        }
+    }
+```
