@@ -28,13 +28,18 @@ public class TreeBuilder {
             TreeNode right = nodes[2 * index + 2] == place ? null : new TreeNode(nodes[2 * index + 2]);
             node.left = left;
             node.right = right;
-            if(left != null) {
+            if (left != null) {
                 stack.add(left);
             }
-            if(right != null) {
+            if (right != null) {
                 stack.add(right);
             }
-            index++;
+            /*
+                left == null  ++
+                right == null ++
+                left,right == null  +=2
+             */
+            index = left == null && right == null ? index + 3 : index + 2;
         }
         return root;
     }

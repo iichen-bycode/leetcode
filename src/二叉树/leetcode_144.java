@@ -61,7 +61,9 @@ public class leetcode_144 {
     public static void main(String[] args) {
         // 1,null,2,3
         // 1,2,3,4,5,null,8,null,null,6,7,9
-        List a = preorderTraversal(new TreeBuilder().build(new int[]{1, -1, 2, -1, -1, 3, 4}, -1));
+//        List a = preorderTraversal(new TreeBuilder().build(new int[]{1, -1, 2, -1, -1, 3,-1}, -1));
+        List a = preorderTraversal(new TreeBuilder().build(new int[]{1, 2, 3, 4, 5, -1, 8, -1, -1, 6, 7, 9, -1}, -1));
+        // [1,2,3]
         Utils.printList(a);
     }
 

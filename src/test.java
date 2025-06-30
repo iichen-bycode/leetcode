@@ -1,8 +1,7 @@
+import helper.TreeNode;
 import helper.Utils;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Stack;
+import java.util.*;
 
 public class test {
     public static void main(String[] args) {
@@ -27,7 +26,24 @@ public class test {
             0010
             0101
          */
-        System.out.println('9' - 0); // 48 57
+//        Deque<Integer> stack = new ArrayDeque<>();
+//        stack.push(1);
+//        stack.push(2);
+//        stack.push(3);
+//        Queue<Integer> queue = new ArrayDeque<>();
+//        queue.add(1);
+//        queue.add(2);
+//        queue.add(3);
+//        for (int a : stack) {
+//            System.out.print(a+",");
+//        }
+//        System.out.println();
+//        for (int a : queue) {
+//            System.out.print(a+",");
+//        }
+//        System.out.println();
+        System.out.println(Long.MAX_VALUE);
+        System.out.println(Math.max(Integer.MAX_VALUE,2147483647));
     }
 
 

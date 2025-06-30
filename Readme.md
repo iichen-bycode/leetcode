@@ -333,8 +333,12 @@ class Solution {
 
 
 #### 二叉树
+> 递归可以想着 迭代怎么实现的 按顺序翻译，可以类比下述的 三个遍历
 
-```前序遍历
+> 404 题的递归遍历
+
+```java
+    // 前序遍历
     public static void preOrderIteration(TreeNode head) {
         if (head == null) {
             return;
@@ -380,7 +384,7 @@ class Solution {
 
 ```java
     // 后序遍历
-    public static void postOrderIteration2(TreeNode head) { 感谢[@ben-ben-niu](/u/ben-ben-niu/)指出错误，代码确实存在问题，已经在原文中修复
+    public static void postOrderIteration2(TreeNode head) { 
         if (head == null) {
             return;
         }
@@ -390,9 +394,9 @@ class Solution {
         while (!stack.isEmpty()) {
             TreeNode peek = stack.peek();
             // 模拟以下过程 当从左右子树回到当前节点 需要判断 上一个节点是否是左还是右 如果都不是表示 左子树可以添加
-            if (peek.left != null && peek.left != cur && peek.right != cur) { // 当前的cur执行右子树
+            if (peek.left != null && peek.left != cur && peek.right != cur) { // 当前还没执行到左右子树 需要添加left
                 stack.push(peek.left);
-            } else if (peek.right != null && peek.right != cur) { // 当前的cur指向左子树
+            } else if (peek.right != null && peek.right != cur) { // 当前的cur指向左子树  添加right   
                 // 上一个节点都不是左右 这里判断是为了 当上一次的cur是左子树是 使得右子树可以正确压入栈内
                 stack.push(peek.right);
             } else { // 左右子树已经遍历完了 打印当前节点
@@ -400,5 +404,22 @@ class Solution {
                 cur = peek;
             }
         }
+    }
+    
+    
+    // 当作先序再 反转
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode n = stack.pop();
+            res.add(n.val);
+            if (n.left != null) stack.push(n.left);
+            if (n.right != null) stack.push(n.right);
+        }
+        Collections.reverse(res);
+        return res;
     }
 ```
