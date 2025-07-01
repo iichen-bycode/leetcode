@@ -42,8 +42,9 @@ public class test {
 //            System.out.print(a+",");
 //        }
 //        System.out.println();
-        System.out.println(Long.MAX_VALUE);
-        System.out.println(Math.max(Integer.MAX_VALUE,2147483647));
+//        System.out.println(Long.MAX_VALUE);
+//        System.out.println(Math.max(Integer.MAX_VALUE,2147483647));
+        System.out.println(Integer.valueOf("465"));
     }
 
 
