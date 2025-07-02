@@ -1,8 +1,3 @@
-import helper.TreeNode;
-import helper.Utils;
-
-import java.util.*;
-
 public class test {
     public static void main(String[] args) {
         /*
@@ -44,7 +39,33 @@ public class test {
 //        System.out.println();
 //        System.out.println(Long.MAX_VALUE);
 //        System.out.println(Math.max(Integer.MAX_VALUE,2147483647));
-        System.out.println(Integer.valueOf("465"));
+//        int max = (int) (Math.pow(2, 31) - 1);
+//        System.out.println((int) Math.sqrt(Integer.MAX_VALUE - 1) + "<>" + Integer.MAX_VALUE);
+//        int a = 2147483600;
+//        int m = (int) Math.sqrt(a - 1);
+        /*
+            4
+            1   4
+         */
+
+//        System.out.println(erfen(new int[]{0, 2, 2, 3, 5, 7}, 4));
+//        System.out.println(erfen(new int[]{1, 2, 3, 4, 5, 7}, 6));
+
+        long s = (long) 1000000000 + 1000000000 + 1000000000 + 1000000000;
+        System.out.println(s);
+    }
+
+    public static int erfen(int[] ints, int target) {
+        int l = 0, r = ints.length - 1;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            if (ints[mid] <= target) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        return r;
     }
 
 

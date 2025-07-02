@@ -60,6 +60,8 @@ List<Integer> search(String text, String pattern) {
 ![alt text](https://picx.zhimg.com/v2-ce1d46a1e3603b07a13789b6ece6022f_r.jpg?source=1def8aca "标注")
 ![alt text](https://picx.zhimg.com/80/v2-c5ff4faaab9c3e13690deb86d8d17d71_720w.webp?source=1def8aca "标注")
 
+> 组合数计算：(r - l + 1) * (r - l) / 2
+
 #### 枚举技巧
 > 双变量 i,j：一次遍历 遍历过程使用哈希表记录已经遍历的值，利用这些哈希表内的值进行计算
 > 
@@ -425,5 +427,26 @@ class Solution {
         }
         Collections.reverse(res);
         return res;
+    }
+```
+
+
+#### 二分
+> 2563、
+```java
+   // 数组升序排列 若查找的元素不存在会返回比当前元素大的第一个元素
+   public static int erfen(int[] ints, int target) {
+        int l = 0, r = ints.length - 1;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            // < 则查找第一个 >= target的值
+            // <= 则查找第一个 > target的值
+            if (ints[mid] < target) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        return l;
     }
 ```

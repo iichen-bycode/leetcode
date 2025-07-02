@@ -7,7 +7,7 @@ public class Utils {
         for (int k : nums) {
             System.out.print(k + ",");
         }
-        System.out.println();
+        System.out.println("---------------------------------------------");
     }
 
     public static void print2(int[][] nums) {
@@ -17,7 +17,7 @@ public class Utils {
             }
             System.out.println();
         }
-        System.out.println();
+        System.out.println("---------------------------------------------");
     }
 
     public static void print3(int[][][] nums) {
@@ -30,13 +30,22 @@ public class Utils {
             }
             System.out.println();
         }
-        System.out.println();
+        System.out.println("---------------------------------------------");
     }
 
+    public static void printList2(List<List<Integer>> a) {
+        for (List<Integer> a1 : a) {
+            for (int a2 : a1) {
+                System.out.print(a2 + ",");
+            }
+            System.out.println();
+        }
+        System.out.println("---------------------------------------------");
+    }
     public static void printList(List<Integer> a) {
         for (int aa : a) {
             System.out.print(aa + ",");
         }
-        System.out.println();
+        System.out.println("---------------------------------------------");
     }
 }
