@@ -1,3 +1,5 @@
+import helper.TreeNode;
+
 public class test {
     public static void main(String[] args) {
         /*
@@ -51,8 +53,15 @@ public class test {
 //        System.out.println(erfen(new int[]{0, 2, 2, 3, 5, 7}, 4));
 //        System.out.println(erfen(new int[]{1, 2, 3, 4, 5, 7}, 6));
 
-        long s = (long) 1000000000 + 1000000000 + 1000000000 + 1000000000;
-        System.out.println(s);
+//        long s = (long) 1000000000 + 1000000000 + 1000000000 + 1000000000;
+//        System.out.println(s);
+        TreeNode a = new TreeNode(1);
+        TreeNode b = new TreeNode(1);
+        System.out.println(a == b);
+
+        TreeNode c = null;
+        TreeNode d = null;
+        System.out.println(c == d);
     }
 
     public static int erfen(int[] ints, int target) {
