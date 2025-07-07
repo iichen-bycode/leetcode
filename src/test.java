@@ -55,13 +55,15 @@ public class test {
 
 //        long s = (long) 1000000000 + 1000000000 + 1000000000 + 1000000000;
 //        System.out.println(s);
-        TreeNode a = new TreeNode(1);
-        TreeNode b = new TreeNode(1);
-        System.out.println(a == b);
-
-        TreeNode c = null;
-        TreeNode d = null;
-        System.out.println(c == d);
+//        TreeNode a = new TreeNode(1);
+//        TreeNode b = new TreeNode(1);
+//        System.out.println(a == b);
+//
+//        TreeNode c = null;
+//        TreeNode d = null;
+//        System.out.println(c == d);
+        // "aa" > "bb"
+        System.out.println('z' - 0);
     }
 
     public static int erfen(int[] ints, int target) {
