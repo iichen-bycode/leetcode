@@ -63,7 +63,7 @@ public class test {
 //        TreeNode d = null;
 //        System.out.println(c == d);
         // "aa" > "bb"
-        System.out.println('z' - 0);
+        System.out.println('z' - 'a');
     }
 
     public static int erfen(int[] ints, int target) {
