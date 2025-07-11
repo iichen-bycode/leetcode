@@ -63,7 +63,46 @@ public class test {
 //        TreeNode d = null;
 //        System.out.println(c == d);
         // "aa" > "bb"
-        System.out.println('z' - 'a');
+//        System.out.println( "l  " + ('l' - 'a'));
+//        System.out.println( "e  " + ('e' - 'a'));
+//        System.out.println( "t  " + ('t' - 'a'));
+//        System.out.println( "c  " + ('c' - 'a'));
+//        System.out.println( "o  " + ('o' - 'a'));
+//        System.out.println( "d  " + ('d' - 'a'));
+//        System.out.println( "zt  " + ('z' - 't'));
+        /*
+            5,9,20,27,0,0,0,0,0,0,>>>>>>> index: 4
+            5,9,20,22,0,0,0,0,0,0,>>>>>>> index: 4
+            5,13,26,0,0,0,0,0,0,0,>>>>>>> index: 3
+            5,13,17,22,0,0,0,0,0,0,>>>>>>> index: 4
+            5,13,17,18,0,0,0,0,0,0,>>>>>>> index: 4
+
+
+            0,10,15,18,21,0,0,0,0,0,>>>>>>> index: 5
+            0,10,15,18,16,0,0,0,0,0,>>>>>>> index: 5
+            0,10,15,17,18,0,0,0,0,0,>>>>>>> index: 5
+            0,10,7,18,0,0,0,0,0,0,>>>>>>> index: 4
+         */
+        extracted(new int[]{0,10,15,18,21},8);
+        extracted(new int[]{0,10,15,18,16},8);
+        extracted(new int[]{0,10,15,17,18},8);
+        extracted(new int[]{0,10,7,18},8);
+        extracted(new int[]{0,-2,-5},-2);
+    }
+
+    private static void extracted(int[] f,int t) {
+        int ans = 0;
+        for (int i = 0; i < f.length - 1; i++) {
+            int r = f.length - 1;
+            while (i < r) {
+                if (f[r] - f[i] == t) {
+                    System.out.println(">>>>>>>> " + f + "<>" + i + "<>" + r);
+                    ans++;
+                }
+                r--;
+            }
+        }
+        System.out.println(ans);
     }
 
     public static int erfen(int[] ints, int target) {

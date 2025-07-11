@@ -48,4 +48,11 @@ public class Utils {
         }
         System.out.println("---------------------------------------------");
     }
+
+    public static void printB(boolean[] array) {
+        for (boolean k : array) {
+            System.out.print(k + ",");
+        }
+        System.out.println("---------------------------------------------");
+    }
 }

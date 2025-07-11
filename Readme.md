@@ -153,6 +153,8 @@ List<Integer> search(String text, String pattern) {
 > 巧用 n&(n-1) 
 > 
 >    (n−1) 作用： 二进制数字 n 最右边的 1 变成 0 ，此 1 右边的 0 都变成 1 。
+>    8 4 2 1 
+>       6：110   5：101
 > 
 >    n&(n−1) 作用： 二进制数字 n 最右边的 1 变成 0 ，其余不变。
 > 
@@ -189,6 +191,7 @@ class Solution {
 
 
 ### 前缀和
+> 有些题目在动态规划里了
 [详解](https://leetcode.cn/problems/range-sum-query-immutable/solutions/2693498/qian-zhui-he-ji-qi-kuo-zhan-fu-ti-dan-py-vaar/)
 > 前缀和数组：    快速求区间和
 ```java
@@ -203,6 +206,8 @@ class Solution {
         s[7] = [0,1,3,6,10,15,21] 则任意a[i]到a[j]的子数组和 就等于s[j + 1] - s[i]
     */
 ```
+
+> 前缀和 + Hash表   => 详见：560
 
 ### 差分
 [详解](https://leetcode.cn/problems/car-pooling/solutions/2550264/suan-fa-xiao-ke-tang-chai-fen-shu-zu-fu-9d4ra/)
