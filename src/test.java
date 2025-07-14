@@ -2,6 +2,7 @@ import helper.TreeNode;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 public class test {
     public static void main(String[] args) {
@@ -86,7 +87,7 @@ public class test {
             0,10,15,17,18,0,0,0,0,0,>>>>>>> index: 5
             0,10,7,18,0,0,0,0,0,0,>>>>>>> index: 4
          */
-        System.out.println(11 / 2);
+        System.out.println(Pattern.matches("(?:.*[0-9].*){8,}","1d2d345d678"));
     }
 
     private static void extracted(int[] f,int t) {

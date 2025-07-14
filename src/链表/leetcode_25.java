@@ -2,7 +2,6 @@ package 链表;
 
 import helper.ListNode;
 import helper.NodeBuilder;
-import org.w3c.dom.Node;
 
 /*
 给你链表的头节点 head ，每 k 个节点一组进行翻转，请你返回修改后的链表。

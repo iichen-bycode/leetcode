@@ -4,6 +4,8 @@
 
 [链表](https://leetcode.cn/problem-list/linked-list/)
 > 虚拟头节点 + 头插法修改next指向
+>
+> 2487
 
 [双向链表](https://leetcode.cn/problem-list/doubly-linked-list/)
 

@@ -2,8 +2,6 @@ package 链表;
 
 import helper.ListNode;
 
-import java.util.List;
-
 //https://leetcode.cn/problems/sum-lists-lcci/description/?envType=problem-list-v2&envId=linked-list
 /*
 给定两个用链表表示的整数，每个节点包含一个数位。

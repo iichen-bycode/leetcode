@@ -16,6 +16,12 @@ public class ListNode {
         this.next = next;
     }
 
+    public static void printNode(ListNode node) {
+        if(node == null)
+            System.out.println();
+        else
+            node.print();
+    }
     public void print() {
         ListNode t = this;
         while (t != null) {
