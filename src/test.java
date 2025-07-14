@@ -1,5 +1,8 @@
 import helper.TreeNode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class test {
     public static void main(String[] args) {
         /*
@@ -83,11 +86,7 @@ public class test {
             0,10,15,17,18,0,0,0,0,0,>>>>>>> index: 5
             0,10,7,18,0,0,0,0,0,0,>>>>>>> index: 4
          */
-        extracted(new int[]{0,10,15,18,21},8);
-        extracted(new int[]{0,10,15,18,16},8);
-        extracted(new int[]{0,10,15,17,18},8);
-        extracted(new int[]{0,10,7,18},8);
-        extracted(new int[]{0,-2,-5},-2);
+        System.out.println(11 / 2);
     }
 
     private static void extracted(int[] f,int t) {
