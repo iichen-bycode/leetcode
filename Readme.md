@@ -5,7 +5,7 @@
 [链表](https://leetcode.cn/problem-list/linked-list/)
 > 虚拟头节点 + 头插法修改next指向
 >
-> 2487
+> 2487、29
 
 [双向链表](https://leetcode.cn/problem-list/doubly-linked-list/)
 
@@ -456,4 +456,21 @@ class Solution {
         }
         return l;
     }
+```
+
+#### 堆-类二叉树
+> 最小堆：顶部的元素小于底部  升序
+```java
+PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>(); 
+```
+
+
+> 最大堆：顶部的元素大于底部  降序
+```java
+PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(11,new Comparator<Integer>(){ 
+    @Override
+    public int compare(Integer i1,Integer i2){
+        return i2-i1;
+    }
+});
 ```
