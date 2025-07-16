@@ -342,6 +342,40 @@ class Solution {
 
 
 #### 二叉树
+> 直径：即计算左右子树的 最大链长和
+```java
+public int diameterOfBinaryTree(TreeNode root) {
+        /*
+                 1
+              2     3
+            4   5
+         */
+        dfs(root);
+        return ans;
+    }
+    int ans = 0;
+    private int dfs(TreeNode root) {
+        if(root == null)
+            return -1;
+        // 返回-1 则叶子节点就是 真链长为0
+        int l = dfs(root.left) + 1;
+        int r = dfs(root.right) + 1;
+        ans = Math.max(ans,l + r);
+        // 返回最长链
+        return Math.max(l,r);
+    }
+    private int dfs2(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = dfs(root.left);
+        int right = dfs(root.right);
+        int now = left + right;
+        ans = Math.max(ans, now);
+        return 1 + Math.max(left, right);
+    }
+```
+
 > 递归可以想着 迭代怎么实现的 按顺序翻译，可以类比下述的 三个遍历
 
 > 404 题的递归遍历
