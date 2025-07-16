@@ -49,6 +49,13 @@ public class Utils {
         System.out.println("---------------------------------------------");
     }
 
+    public static void printListS(List<String> a) {
+        for (String aa : a) {
+            System.out.print(aa + ",");
+        }
+        System.out.println("---------------------------------------------");
+    }
+
     public static void printB(boolean[] array) {
         for (boolean k : array) {
             System.out.print(k + ",");
