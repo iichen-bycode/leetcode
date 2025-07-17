@@ -1,9 +1,6 @@
 import helper.TreeNode;
 
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.PriorityQueue;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class test {
@@ -90,20 +87,26 @@ public class test {
             0,10,7,18,0,0,0,0,0,0,>>>>>>> index: 4
          */
 //        System.out.println(Pattern.matches("(?:.*[0-9].*){8,}","1d2d345d678"));
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2 - o1;
-            }
-        });
-        minHeap.offer(5);
-        minHeap.offer(4);
-        minHeap.offer(6);
-        minHeap.offer(1);
-        while (!minHeap.isEmpty()) {
-            System.out.println(minHeap.poll());
-        }
-
+//        PriorityQueue<Integer> minHeap = new PriorityQueue<>(new Comparator<Integer>() {
+//            @Override
+//            public int compare(Integer o1, Integer o2) {
+//                return o2 - o1;
+//            }
+//        });
+//        minHeap.offer(5);
+//        minHeap.offer(4);
+//        minHeap.offer(6);
+//        minHeap.offer(1);
+//        while (!minHeap.isEmpty()) {
+//            System.out.println(minHeap.poll());
+//        }
+        /*
+            0001
+            0100
+         */
+        String a = "a";
+        a = "b" + a;
+        System.out.println("aba".compareTo("ab"));
     }
 
     private static void extracted(int[] f, int t) {

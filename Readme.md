@@ -317,6 +317,8 @@ class Solution {
 > 
 
 #### 回溯
+> 看成多个for循环嵌套，额外添加终止条件、逻辑裁剪和逻辑处理   如：78
+
 ```java
     private static int ans = 0;
     public static int triangleNumber(int[] nums) {
@@ -343,6 +345,8 @@ class Solution {
 
 #### 二叉树
 > 直径：即计算左右子树的 最大链长和
+> 
+> 988 1367(双层，逐个递归)、1372
 ```java
 public int diameterOfBinaryTree(TreeNode root) {
         /*
