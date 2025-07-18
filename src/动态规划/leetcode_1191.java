@@ -65,13 +65,79 @@ public class leetcode_1191 {
         for (int i = 0; i < len; i++) {
             int cur = arr[i % n];
             sum = Math.max((sum + cur), cur);
-//            if(ans < 1000000000) {
-//                System.out.println(">>>>>>>> sum " + sum + "<> " + ans);
-//            }
             ans = Math.max(sum, ans) % MOD;
         }
-//        System.out.println(">>>>>>>>>>>>>>>>>>>");
         return (int) ans;
     }
 
+    class Solution {
+
+        /**
+         * 计算k次连接数组后的最大子数组和
+         *
+         * k次串联=环形子数组
+         *
+         * @param arr 输入数组
+         * @param k 数组连接次数
+         * @return 最大子数组和对MOD取模的结果
+         */
+        public static int kConcatenationMaxSum(int[] arr, int k) {
+            // 模数常量，用于结果取模
+            final int MOD = 1000000007;
+
+            // 当前连续子数组和
+            long preResult = 0;
+
+            // k==1时，全局最大子数组和
+            long result = 0;
+
+            // 第一遍遍历：处理 k=1 的情况（原始数组）
+            for (int value : arr) {
+                // Kadane算法核心：决定是重新开始子数组还是延续当前子数组
+                preResult = Math.max(value, preResult + value);
+                // 更新全局最大值
+                result = Math.max(result, preResult);
+            }
+
+            // 如果只需要处理原始数组(k=1)，直接返回结果
+            if (k == 1) {
+                return (int) (result % MOD);
+            }
+
+            // 第二遍遍历：处理k=2的情况（数组连接两次）
+            long result2 = 0;
+            for (int value : arr) {
+                preResult = Math.max(value, preResult + value);
+                result2 = Math.max(result2, preResult);
+            }
+
+            // 如果连接两次没有比连接一次获得更大和，返回 k=1 的结果
+            if (result2 - result <= 0) {
+                return (int) (result % MOD);
+            }
+
+            // 如果只需要处理 k=2 的情况，直接返回结果
+            if (k == 2) {
+                return (int) (result2 % MOD);
+            }
+
+            // 第三遍遍历：处理k=3的情况（数组连接三次）
+            long result3 = 0;
+            for (int value : arr) {
+                preResult = Math.max(value, preResult + value);
+                result3 = Math.max(result3, preResult);
+            }
+
+            // 如果连接三次没有比连接两次获得更大和，返回k=2的结果
+            if (result3 - result2 <= 0) {
+                return (int) (result2 % MOD);
+            }
+
+            // 处理k>3的情况：基于观察到的模式进行结果推算
+            // 处理大k值时的整数溢出
+            long diff = result3 - result2;
+            long increment = diff * (k - 2) % MOD; // 改为k-2更符合数学关系
+            return (int) ((result2 + increment) % MOD);
+        }
+    }
 }

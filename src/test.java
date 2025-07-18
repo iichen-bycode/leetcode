@@ -1,4 +1,5 @@
 import helper.TreeNode;
+import helper.Utils;
 
 import java.util.*;
 import java.util.regex.Pattern;
@@ -104,9 +105,104 @@ public class test {
             0001
             0100
          */
-        String a = "a";
-        a = "b" + a;
-        System.out.println("aba".compareTo("ab"));
+        /*
+
+
+         */
+//        Utils.print(buildNext("aacaab"));
+        Utils.print(maxSlidingWindow(new int[]{2, 3, 4, 7, 8, 9, 1}, 3));
+    }
+
+    public static int[] maxSlidingWindow(int[] nums, int k) {
+        if (nums == null || k <= 0) return new int[0];
+        int n = nums.length;
+        int[] result = new int[n - k + 1];
+        Deque<Integer> deque = new LinkedList<>(); // 存下标
+
+        for (int i = 0; i < n; i++) {
+            // 移除超出窗口的元素
+            while (!deque.isEmpty() && deque.peekFirst() < i - k + 1) {
+                deque.pollFirst();
+            }
+
+            // 移除比当前元素小的尾部元素（保持单调递减）
+            while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
+                deque.pollLast();
+            }
+
+            // 添加当前元素
+            deque.offerLast(i);
+
+            // 窗口形成后，收集答案
+            if (i >= k - 1) {
+                result[i - k + 1] = nums[deque.peekFirst()];
+            }
+        }
+
+        return result;
+    }
+
+    private static int longestPalindrome(String pattern) {
+        int n = pattern.length();
+        boolean[][] dp = new boolean[n][n];
+        int l = 0, r = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++) {
+                // 首尾字符相同则 子需要判断 dp[l+1][r-1] 是否为回文 即i与j之间的字串是否为
+                if (pattern.charAt(i) == pattern.charAt(j) && (i - j <= 2 || dp[j + 1][i - 1])) {
+                    dp[i][j] = true;
+                    // 当前回文串更大
+                    if (i - j > r - l) {
+                        l = j;
+                        r = i;
+                    }
+                }
+            }
+        }
+        System.out.println(pattern.substring(l, r + 1));
+        return r - l + 1;
+    }
+
+    private static int[] buildNext(String pattern) {
+        int n = pattern.length(), l = 0;
+        int[] next = new int[n];
+        for (int i = 1; i < n; i++) {
+            while (l > 0 && pattern.charAt(i) != pattern.charAt(l)) {
+                l = next[l - 1];
+            }
+            if (pattern.charAt(i) == pattern.charAt(l)) {
+                l++;
+            }
+            next[i] = l;
+        }
+        return next;
+    }
+
+    class Solution {
+        public String longestPalindrome(String s) {
+            /*
+             *
+             * 当：s[right] == s[left]
+             * 	right-left == 0 一个字符 满足
+             *  right-left == 1 二和字符 满足
+             *  right-left>=2 三个及以上字符
+             */
+
+            int i = 0, j = 0;
+            boolean dp[][] = new boolean[s.length()][s.length()];
+            for (int right = 0; right < s.length(); right++) {
+                for (int left = 0; left <= right; left++) {
+                    if ((s.charAt(right) == s.charAt(left)) && (right - left <= 2 || dp[left + 1][right - 1])) {
+                        dp[left][right] = true;
+                        if ((right - left) > (j - i)) {
+                            i = left;
+                            j = right;
+                        }
+                    }
+                }
+            }
+            return s.substring(i, j + 1);
+        }
     }
 
     private static void extracted(int[] f, int t) {
