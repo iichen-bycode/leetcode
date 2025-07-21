@@ -1,6 +1,7 @@
 import helper.TreeNode;
 import helper.Utils;
 
+import java.net.URI;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -110,7 +111,20 @@ public class test {
 
          */
 //        Utils.print(buildNext("aacaab"));
-        Utils.print(maxSlidingWindow(new int[]{2, 3, 4, 7, 8, 9, 1}, 3));
+//        Utils.print(maxSlidingWindow(new int[]{2, 3, 4, 7, 8, 9, 1}, 3));
+        /*
+
+            010
+            000
+         */
+//        System.out.println((char)('z' - 32));
+//        System.out.println((char)('a' - 32));
+//        System.out.println('9' - 0);
+//        System.out.println('a' - 0);
+//        System.out.println('z' - 0);
+//        System.out.println('A' - 0);
+//        System.out.println('Z' - 0);
+        System.out.println(Integer.valueOf("223"));
     }
 
     public static int[] maxSlidingWindow(int[] nums, int k) {
