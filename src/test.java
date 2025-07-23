@@ -124,7 +124,32 @@ public class test {
 //        System.out.println('z' - 0);
 //        System.out.println('A' - 0);
 //        System.out.println('Z' - 0);
-        System.out.println(Integer.valueOf("223"));
+
+//        System.out.println(findMinimumTime(new ArrayList<>(List.of(3, 4, 1)), 1));
+        System.out.println(findMinimumTime(new ArrayList<>(List.of(7, 3, 6, 18, 22, 50)), 4));
+    }
+
+    public static int findMinimumTime(List<Integer> strength, int k) {
+        int x = 1;
+        int power = 0;
+        // 3 6 7 18 22 50
+        int ans = 0;
+        Collections.sort(strength);
+        while (!strength.isEmpty()) {
+            while (power < strength.get(0)) {
+                power = power + x;
+                ans++;
+            }
+            int t = strength.size() - 1;
+            while (t >= 0 && power < strength.get(t)) {
+                t--;
+            }
+            strength.remove(t);
+            x += k;
+            System.out.println(power + "<>" + x + "<>" + t);
+            power = 0;
+        }
+        return ans;
     }
 
     public static int[] maxSlidingWindow(int[] nums, int k) {
