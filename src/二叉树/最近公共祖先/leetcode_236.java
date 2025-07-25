@@ -1,4 +1,4 @@
-package 二叉树;
+package 二叉树.最近公共祖先;
 
 import helper.TreeNode;
 /*
