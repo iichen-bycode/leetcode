@@ -1,4 +1,7 @@
 package 二叉树.二叉搜索树;
+
+import helper.TreeNode;
+
 /*
 给你一个二叉搜索树的根节点 root ，返回 树中任意两不同节点值之间的最小差值 。
 
@@ -20,29 +23,23 @@ package 二叉树.二叉搜索树;
 
 提示：
 
-树中节点的数目范围是 [2, 104]
+树中节点的数目范围是 [2, 100]
 0 <= Node.val <= 105
  */
+//二叉搜索树节点最小距离
+// 同530
+public class leetcode_783 {
+    int ans = Integer.MAX_VALUE;
+    int pre = -1;
 
-import helper.TreeNode;
-
-// 二叉搜索树的最小绝对差
-public class leetcode_530 {
-    public int getMinimumDifference(TreeNode root) {
+    public int minDiffInBST(TreeNode root) {
         dfs(root);
         return ans;
     }
 
-    int ans = Integer.MAX_VALUE;
-    int pre = -1;
-
     private void dfs(TreeNode root) {
-        if (root == null) {
+        if (root == null)
             return;
-        }
-        if (ans == 1)
-            return;
-        // 中序遍历
         dfs(root.left);
         if (pre != -1) {
             ans = Math.min(ans, root.val - pre);

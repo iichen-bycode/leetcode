@@ -343,6 +343,7 @@ private static void dfs(int[] nums, int index, int sum, int count) {
 >
 > 988 1367(双层，逐个递归)、1372
 
+
 ```java
 public int diameterOfBinaryTree(TreeNode root) {
         /*
@@ -389,6 +390,9 @@ private int dfs2(TreeNode root) {
 > 104 111 层次遍历 每一层获取size全部poll 来实现层数计数等逻辑处理
 >
 > 从顶向下遍历（111）- 往下传递值 以及 从底向上遍历-往上返回值
+> 
+>
+> 二叉搜索树：中序遍历有序，看成有序数组求值 530
 
 ```java
     // 前序遍历
