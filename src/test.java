@@ -126,7 +126,8 @@ public class test {
 //        System.out.println('Z' - 0);
 
 //        System.out.println(findMinimumTime(new ArrayList<>(List.of(3, 4, 1)), 1));
-        System.out.println(findMinimumTime(new ArrayList<>(List.of(7, 3, 6, 18, 22, 50)), 4));
+//        System.out.println(findMinimumTime(new ArrayList<>(List.of(7, 3, 6, 18, 22, 50)), 4));
+        System.out.println(3 <= 3 && 3 >= 1);
     }
 
     public static int findMinimumTime(List<Integer> strength, int k) {

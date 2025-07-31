@@ -393,6 +393,14 @@ private int dfs2(TreeNode root) {
 > 
 >
 > 二叉搜索树：中序遍历有序，看成有序数组求值 530
+> 
+> 插入、删除(使用链接的方式)  701 450 669
+> 
+```
+root.right = dfs(root.right,val)
+root.left = dfs(root.left,val)
+return root;
+```
 
 ```java
     // 前序遍历
