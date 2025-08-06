@@ -33,24 +33,24 @@ public class Utils {
         System.out.println("---------------------------------------------");
     }
 
-    public static void printList2(List<List<Integer>> a) {
-        for (List<Integer> a1 : a) {
-            for (int a2 : a1) {
+    public static <T> void printList2(List<List<T>> a) {
+        for (List<T> a1 : a) {
+            for (T a2 : a1) {
                 System.out.print(a2 + ",");
             }
             System.out.println();
         }
         System.out.println("---------------------------------------------");
     }
-    public static void printList(List<Integer> a) {
-        for (int aa : a) {
+    public static <T> void printList(List<T> a) {
+        for (T aa : a) {
             System.out.print(aa + ",");
         }
         System.out.println("---------------------------------------------");
     }
 
-    public static void printListS(List<String> a) {
-        for (String aa : a) {
+    public static <T> void printListS(List<T> a) {
+        for (T aa : a) {
             System.out.print(aa + ",");
         }
         System.out.println("---------------------------------------------");
