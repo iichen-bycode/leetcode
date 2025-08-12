@@ -205,6 +205,8 @@ class Solution {
 > 以 dp[i] 表示 0-i区间的某个条件：最大和等
 > dp[i] 表示连续子区间 是否以 a[i]结尾：dp[i] = dp[i-1] + a[i] (以结尾) / a[i] (不以结尾 额外新的子序列)
 
+> 序列问题：300、673
+
 > 路径-网格问题
 > [比较好的讲解](https://leetcode.cn/problems/minimum-path-sum/solutions/2728404/javapython3cdong-tai-gui-hua-kong-jian-y-a5sz/)
 > (当 当前状态只有上一个状态转变而来 则可以进行转为一维)
